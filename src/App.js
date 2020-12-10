@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import RestaurantInput from './components/RestaurantInput';
 import Restaurants from './components/Restaurants';
+import { connect } from 'react-redux';
+import { addRestaurant } from  './actions/restaurants.js';
+
 
 export class App extends Component {
   render() {
@@ -13,4 +16,12 @@ export class App extends Component {
   }
 };
 
-export default App;
+const mapDispatchToProps = dispatch =>{
+  return {
+      addItem: () =>{
+        dispatch(addRestaurant())
+      }
+  }
+}
+
+export default connect(mapDispatchToProps)(App);
