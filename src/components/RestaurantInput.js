@@ -49,8 +49,16 @@ export class RestaurantInput extends Component {
   }
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addRestaurant: () => { dispatch(addRestaurant()) }
+  }
+}
+ 
+export default connect(null, mapDispatchToProps)(RestaurantInput);
+
 
 //connect this component by wrapping RestaurantInput below
 //export default connect(state => ({ items: state.items }), { addItem })(App);
 
-export default connect(mapDispatchToProps)(RestaurantInput);
+// export default connect(mapDispatchToProps)(RestaurantInput);
